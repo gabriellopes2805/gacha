@@ -7,150 +7,158 @@
 body {
   width: 100%;
   height: 100vh;
-  overflow: hidden;
   background-color: #171717;
 
-  #lootDiv {
-    justify-self: last baseline;
-    display: flex;
-    position: relative;
-    align-items: center;
-    transform: scale(0.2);
-    justify-content: center;
-    transform-style: preserve-3d;
-    animation: appear 2s 1 linear;
-    #light {
-      width: 800px;
-      height: 800px;
-      position: absolute;
-      border-radius: 50%;
-      background-size: cover;
-      transform: translateZ(-200px);
-      animation: roll 3s infinite linear;
-      background-image: url("images/light.png");
-    }
-    #loot {
-      width: 250px;
-      height: 250px;
-      position: absolute;
-      transform: scale(0);
-      background-size: contain;
-      background-position: center;
-      background-repeat: no-repeat;
-      animation: lootWin 3s 2s ease-out 1 forwards;
-      background-image: url("images/3dTralalero.png");
-    }
+  #overflow {
+    width: 500px;
+    height: 500px;
+    contain: layout;
+    overflow: hidden;
+    pointer-events: none;
 
-    #cubeDisplay {
+    #lootDiv {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      position: relative;
+      align-items: center;
+      justify-self: center;
+      justify-content: center;
       transform-style: preserve-3d;
-      transform: rotateX(-30deg) rotateY(-30deg);
-      animation: rotating 1 2s ease-out forwards alternate;
+      animation: appear 2s 1 linear forwards;
+      #light {
+        width: 800px;
+        height: 800px;
+        position: absolute;
+        border-radius: 50%;
+        background-size: cover;
+        transform: translateZ(-200px);
+        animation: roll 3s infinite linear;
+        background-image: url("images/light.png");
+      }
+      #loot {
+        width: 250px;
+        height: 250px;
+        position: absolute;
+        transform: scale(0);
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        animation: lootWin 3s 2s ease-out 1 forwards;
+        background-image: url("images/3dTralalero.png");
+      }
 
-      #cube {
-        width: 200px;
-        height: 200px;
-        position: relative;
-        transform: translateZ(-100px);
+      #cubeDisplay {
         transform-style: preserve-3d;
+        transform: rotateX(-30deg) rotateY(-30deg);
+        animation: rotating 1 2s ease-out forwards alternate;
 
-        // classes das faces
-        .face {
-          width: 200px !important;
-          position: absolute !important;
-          background-color: saddlebrown;
-        }
-        .facex {
-          height: 140px !important;
-        }
-        .facef {
-          height: 60px !important;
-        }
-        .facea {
-          height: 200px !important;
-        }
+        #cube {
+          width: 200px;
+          height: 200px;
+          position: relative;
+          transform: translateZ(-100px);
+          transform-style: preserve-3d;
 
-        // personalização das faces
-        #front {
-          background-size: 102% auto;
-          background-position: -3px -63px;
-          background-image: url("images/ladoBau.png");
-          transform: translateZ(200px) translateY(60px);
-        }
-        #back {
-          background-size: 102% auto;
-          background-position: -3px -63px;
-          background-image: url("images/ladoBau.png");
-          transform: rotateY(180deg) translateY(60px);
-        }
-        #left {
-          background-size: 102% auto;
-          background-position: -3px -63px;
-          background-image: url("images/ladoBau.png");
-          transform: rotateY(-90deg) translateZ(100px) translateX(100px)
-            translateY(60px);
-        }
-        #right {
-          background-size: 102% auto;
-          background-position: -3px -63px;
-          background-image: url("images/ladoBau.png");
-          transform: rotateY(90deg) translateZ(100px) translateX(-100px)
-            translateY(60px);
-        }
+          // classes das faces
+          .face {
+            width: 200px !important;
+            position: absolute !important;
+            background-color: saddlebrown;
+          }
+          .facex {
+            height: 140px !important;
+          }
+          .facef {
+            height: 60px !important;
+          }
+          .facea {
+            height: 200px !important;
+          }
 
-        #lock {
-          justify-self: center;
-          width: 25px !important;
-          height: 60px !important;
-          background-image: url("images/lockBau.png");
-          background-size: 100%;
-          position: absolute !important;
-          transform-origin: bottom center;
-          animation: lock 0.75s 2s ease-in-out 1 forwards;
-          transform: translateZ(201px) translateY(40px);
-        }
+          // personalização das faces
+          #front {
+            background-size: 102% auto;
+            background-position: -3px -63px;
+            background-image: url("images/ladoBau.png");
+            transform: translateZ(200px) translateY(60px);
+          }
+          #back {
+            background-size: 102% auto;
+            background-position: -3px -63px;
+            background-image: url("images/ladoBau.png");
+            transform: rotateY(180deg) translateY(60px);
+          }
+          #left {
+            background-size: 102% auto;
+            background-position: -3px -63px;
+            background-image: url("images/ladoBau.png");
+            transform: rotateY(-90deg) translateZ(100px) translateX(100px)
+              translateY(60px);
+          }
+          #right {
+            background-size: 102% auto;
+            background-position: -3px -63px;
+            background-image: url("images/ladoBau.png");
+            transform: rotateY(90deg) translateZ(100px) translateX(-100px)
+              translateY(60px);
+          }
 
-        #frontf {
-          transform: translateZ(200px);
-          transform-origin: bottom center;
-          background-image: url("images/frenteBau.png");
-          background-size: 100% auto;
-          animation: ff 0.75s 2s ease-in-out 1 forwards;
-        }
-        #backb {
-          background-image: url("images/ladoBau.png");
-          background-size: 100% auto;
-          transform-origin: bottom center;
-          transform: rotateY(180deg);
-          animation: bb 0.75s 2s ease-in-out 1 forwards;
-        }
-        #leftl {
-          background-image: url("images/ladoBau.png");
-          background-size: 100% auto;
-          transform-origin: bottom center;
-          animation: ll 0.75s 2s ease-in-out 1 forwards;
-          transform: rotateY(-90deg) translateZ(100px) translateX(100px);
-        }
-        #rightr {
-          background-image: url("images/ladoBau.png");
-          background-size: 100% auto;
-          transform-origin: bottom center;
-          animation: rr 0.75s 2s ease-in-out 1 forwards;
-          transform: rotateY(90deg) translateZ(100px) translateX(-100px);
-        }
-        #top {
-          background-size: cover;
-          width: 200px !important;
-          height: 200px !important;
-          transform-origin: 100px 60px;
-          position: absolute !important;
-          background-image: url("images/topoBau.png");
-          animation: openbox 0.75s 2s ease-in-out 1 forwards;
-          transform: rotateX(90deg) translateY(60px) translateZ(60px);
-        }
-        #bottom {
-          background-size: cover;
-          background-image: url("images/topoBau.png");
-          transform: rotateX(-90deg) translateZ(100px) translateY(-100px);
+          #lock {
+            justify-self: center;
+            width: 25px !important;
+            height: 60px !important;
+            background-image: url("images/lockBau.png");
+            background-size: 100%;
+            position: absolute !important;
+            transform-origin: bottom center;
+            animation: lock 0.75s 2s ease-in-out 1 forwards;
+            transform: translateZ(201px) translateY(40px);
+          }
+
+          #frontf {
+            transform: translateZ(200px);
+            transform-origin: bottom center;
+            background-image: url("images/frenteBau.png");
+            background-size: 100% auto;
+            animation: ff 0.75s 2s ease-in-out 1 forwards;
+          }
+          #backb {
+            background-image: url("images/ladoBau.png");
+            background-size: 100% auto;
+            transform-origin: bottom center;
+            transform: rotateY(180deg);
+            animation: bb 0.75s 2s ease-in-out 1 forwards;
+          }
+          #leftl {
+            background-image: url("images/ladoBau.png");
+            background-size: 100% auto;
+            transform-origin: bottom center;
+            animation: ll 0.75s 2s ease-in-out 1 forwards;
+            transform: rotateY(-90deg) translateZ(100px) translateX(100px);
+          }
+          #rightr {
+            background-image: url("images/ladoBau.png");
+            background-size: 100% auto;
+            transform-origin: bottom center;
+            animation: rr 0.75s 2s ease-in-out 1 forwards;
+            transform: rotateY(90deg) translateZ(100px) translateX(-100px);
+          }
+          #top {
+            background-size: cover;
+            width: 200px !important;
+            height: 200px !important;
+            transform-origin: 100px 60px;
+            position: absolute !important;
+            background-image: url("images/topoBau.png");
+            animation: openbox 0.75s 2s ease-in-out 1 forwards;
+            transform: rotateX(90deg) translateY(60px) translateZ(60px);
+          }
+          #bottom {
+            background-size: cover;
+            background-image: url("images/topoBau.png");
+            transform: rotateX(-90deg) translateZ(100px) translateY(-100px);
+          }
         }
       }
     }
@@ -238,7 +246,7 @@ body {
     transform: translateY(100px) scale(0);
   }
   to {
-    transform: translateY(0) scale(0.2);
+    transform: translateY(0) scale(0.6);
   }
 }
 
